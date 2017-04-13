@@ -1,4 +1,7 @@
 let angular = require('angular');
 
-module.exports = angular.module('paw', [])
+module.exports = angular.module('paw', [
+    'pawTemplates',
+    require('./components')
+  ])
   .name;
