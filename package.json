@@ -4,14 +4,16 @@
   "description": "A project to translate what you write into pictograms",
   "author": "Adrián Gómez - http://adgllorente.com",
   "scripts": {
-    "clean": "rm -rf build && mkdir -p ./dist",
-    "build-less": "lessc --glob ./src/style.less ./dist/bundle.css",
-    "build-js": "browserify ./src/index.js -o ./dist/bundle.js",
-    "watch-js": "watchify ./src/index.js -d -o ./dist/bundle.js",
+    "clean": "rm -rf ./public/bundles && mkdir -p ./public/bundles",
+    "build-less": "lessc --glob ./src/style.less ./public/bundles/bundle.css",
+    "build-js": "browserify ./src/index.js -o ./public/bundles/bundle.js",
+    "watch-js": "watchify ./src/index.js -d -o ./public/bundles/bundle.js",
     "watch-less": "nodemon --watch ./src -e less --exec 'npm run build-less'",
-    "serve": "http-server -f / ./",
+    "serve": "http-server -f / ./public",
+    "build": "npm run clean && npm run build-js && npm run build-less",
     "dev": "npm run clean && npm run watch-js & npm run watch-less & npm run serve",
-    "start": "npm run clean && npm run build-js && npm run build-less && npm run serve"
+    "start": "npm run clean && npm run build-js && npm run build-less && npm run serve",
+    "deploy": "npm run build && firebase deploy"
   },
   "license": "MIT",
   "devDependencies": {

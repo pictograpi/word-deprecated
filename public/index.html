@@ -7,14 +7,17 @@
   <title>Pictograpi Word</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <base href="/">
-  <link rel="stylesheet" href="./dist/bundle.css">
+  <link rel="stylesheet" href="./bundles/bundle.css">
 </head>
 
-<body ng-app="paw">
+<body ng-app="paw" class="paw">
   <paw-header></paw-header>
   <paw-menu></paw-menu>
+  <section class="paw-main">
+    <paw-input class="paw-main--input"></paw-input>
+  </section>
   <script src="https://use.fontawesome.com/7a336f693e.js"></script>
-  <script src="./dist/bundle.js"></script>
+  <script src="./bundles/bundle.js"></script>
 </body>
 
 </html>

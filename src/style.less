@@ -33,3 +33,20 @@ a {
     color: darken(@brand-blue, 20%);
   }
 }
+
+.paw {
+  display: flex;
+  flex-direction: column;
+}
+
+.paw-main {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  flex-grow: 1;
+
+  &--input {
+    flex-basis: 100%;
+    display: flex;
+  }
+}
