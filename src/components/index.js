@@ -1,8 +1,12 @@
-let angular = require('angular');
+import angular from 'angular';
+import headerComponent from './header/header.component';
+import menuComponent from './menu/menu.component';
+import inputComponent from './input/input.component';
+import outputComponent from './output/output.component';
 
-module.exports = angular.module('paw.components', [])
-  .component('pawHeader', require('./header/header.component'))
-  .component('pawMenu', require('./menu/menu.component'))
-  .component('pawInput', require('./input/input.component'))
-  .component('pawOutput', require('./output/output.component'))
+export default angular.module('paw.components', [])
+  .component('pawHeader', headerComponent)
+  .component('pawMenu', menuComponent)
+  .component('pawInput', inputComponent)
+  .component('pawOutput', outputComponent)
   .name;

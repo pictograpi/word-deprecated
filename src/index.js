@@ -1,7 +1,8 @@
-let angular = require('angular');
+import angular from 'angular';
+import pawComponents from './components';
 
-module.exports = angular.module('paw', [
+export default angular.module('paw', [
     'pawTemplates',
-    require('./components')
+    pawComponents
   ])
   .name;

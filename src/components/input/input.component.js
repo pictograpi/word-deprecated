@@ -1,5 +1,7 @@
-module.exports = {
-  templateUrl: require('./input.view.html'),
+import inputView from './input.view.html';
+
+export default {
+  templateUrl: inputView,
   controller: inputController
 };
 

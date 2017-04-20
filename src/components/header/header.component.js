@@ -1,3 +1,5 @@
-module.exports = {
-  templateUrl: require('./header.view.html'),
+import headerView from './header.view.html';
+
+export default {
+  templateUrl: headerView,
 };

@@ -1,3 +1,5 @@
+import outputView from './output.view.html';
+
 module.exports = {
-  templateUrl: require('./output.view.html')
+  templateUrl: outputView
 };

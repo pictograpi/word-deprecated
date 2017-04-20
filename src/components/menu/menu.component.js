@@ -1,3 +1,5 @@
-module.exports = {
-  templateUrl: require('./menu.view.html')
+import menuView from './menu.view.html';
+
+export default {
+  templateUrl: menuView
 };
