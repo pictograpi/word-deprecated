@@ -1,0 +1,22 @@
+@media print {
+  .paw-header, .paw-menu, .paw-main--input {
+    display: none;
+  }
+
+  @page {
+    margin: 2cm;
+  }
+
+  .paw-main--output {
+    overflow: auto;
+    position: absolute;
+  }
+
+  .paw-output {
+    overflow: auto;
+  }
+
+  .paw-output--pictogram {
+    margin: 0 2px 23.3px 0;
+  }
+}
