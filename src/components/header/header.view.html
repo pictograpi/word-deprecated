@@ -2,6 +2,7 @@
   <a href="/" class="paw-header--logo"><span class="paw-header--logo__bold">Pictograpi</span>Word</a>
   <nav class="paw-header--nav">
     <a href="" class="paw-header--nav-item">Need an invitation?</a>
-    <a href="" class="paw-header--nav-item">Login</a>
+    <a href="" ng-if="!$root.isAuth" ng-click="$ctrl.onLoginClick()" class="paw-header--nav-item">Login</a>
+    <a href="" ng-if="$root.isAuth" ng-click="$ctrl.onLogoutClick()" class="paw-header--nav-item">Logout</a>
   </nav>
 </header>

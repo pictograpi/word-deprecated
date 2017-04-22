@@ -5,16 +5,25 @@ export default {
   controller: inputController
 };
 
-inputController.$inject = ['pawWordService'];
+inputController.$inject = ['$rootScope', 'pawMainConstants', 'pawWordService'];
 
 /**
  * Input controller.
- * 
+ *
+ * @param {any} $rootScope
  * @param {any} pawWordService
  */
-function inputController(pawWordService) {
+function inputController($rootScope, pawMainConstants, pawWordService) {
   var ctrl = this,
     previous = '';
+
+  /**
+   * Resets input.
+   */
+  function reset() {
+    ctrl.input = '';
+    pawWordService.update('');
+  }
 
   /**
    * Updates the word service with the new input introduced.
@@ -22,4 +31,6 @@ function inputController(pawWordService) {
   ctrl.onUpdate = () => {
     pawWordService.update(ctrl.input);
   };
+
+  $rootScope.$on(pawMainConstants.EVENTS.USER_LOGGED_OUT, () => reset());
 }

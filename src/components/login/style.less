@@ -1,0 +1,65 @@
+.paw-login {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: fade(#eee, 50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &--form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+  }
+
+  &--form-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: 0;
+    background: none;
+    margin: 20px;
+    color: @brand-blue;
+    font-size: 30px !important;
+    cursor: pointer;
+
+    &:hover {
+      background-color: transparent !important;
+      color: darken(@brand-blue, 10%);
+    }
+  }
+
+  &--form-title {
+    padding-bottom: 10px;
+    border-bottom: 1px solid @brand-grey-soft;
+    margin-top: 0;
+    font-family: Roboto;
+    font-weight: 100;
+    color: @brand-blue;
+  }
+
+  &--form-input {
+    border-radius: 5px;
+    border: 1px solid @brand-blue;
+    padding: 20px 10px;
+    margin: 5px;
+    font-size: 20px;
+    font-family: Roboto;
+    font-weight: 100;
+  }
+
+  &--form-input__button-error {
+    border: 1px solid red;
+    background-color: red;
+
+    &:hover {
+      background-color: red;
+    }
+  }
+}

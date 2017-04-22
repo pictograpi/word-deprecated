@@ -4,6 +4,7 @@ import menuComponent from './menu/menu.component';
 import inputComponent from './input/input.component';
 import outputComponent from './output/output.component';
 import pictogramComponent from './pictogram/pictogram.component';
+import loginComponent from './login/login.component';
 
 export default angular.module('paw.components', [])
   .component('pawHeader', headerComponent)
@@ -11,4 +12,5 @@ export default angular.module('paw.components', [])
   .component('pawInput', inputComponent)
   .component('pawOutput', outputComponent)
   .component('pawPictogram', pictogramComponent)
+  .component('pawLogin', loginComponent)
   .name;
