@@ -5,13 +5,21 @@ export default {
   controller: inputController
 };
 
-inputController.$inject = [];
+inputController.$inject = ['pawWordService'];
 
-function inputController() {
+/**
+ * Input controller.
+ * 
+ * @param {any} pawWordService
+ */
+function inputController(pawWordService) {
   var ctrl = this,
     previous = '';
 
-  ctrl.onUpdate = event => {
-    console.log(event);
+  /**
+   * Updates the word service with the new input introduced.
+   */
+  ctrl.onUpdate = () => {
+    pawWordService.update(ctrl.input);
   };
 }

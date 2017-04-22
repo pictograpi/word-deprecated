@@ -1,5 +1,36 @@
 import outputView from './output.view.html';
 
-module.exports = {
-  templateUrl: outputView
+export default {
+  templateUrl: outputView,
+  controller: outputController
 };
+
+outputController.$inject = ['$rootScope', 'pawMainConstants', 'pawWordService'];
+
+/**
+ * Output controller.
+ *
+ * @param {any} $rootScope
+ * @param {any} pawMainConstants
+ * @param {any} pawWordService
+ */
+function outputController($rootScope, pawMainConstants, pawWordService) {
+  var ctrl = this;
+
+  /**
+   * Creates a listener to update data.
+   */
+  function createPictogramListener() {
+    $rootScope.$on(pawMainConstants.EVENTS.NEW_WORD_INSERTED, () => {
+      ctrl.words = pawWordService.get();
+      console.log(`Existing words: ${ctrl.words}`);
+    });
+  }
+
+  /**
+   * Creates a listener for the pictogram event.
+   */
+  ctrl.$onInit = () => {
+    createPictogramListener();
+  }
+}

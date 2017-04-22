@@ -1,1 +1,5 @@
-<div class="paw-output"></div>
+<div class="paw-output">
+  <div class="paw-output--pictogram" ng-repeat="word in $ctrl.words track by (word+$index)">
+    <paw-pictogram word="word"></paw-pictogram>
+  </div>
+</div>

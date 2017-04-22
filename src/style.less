@@ -45,8 +45,11 @@ a {
   padding: 10px;
   flex-grow: 1;
 
-  &--input {
+  &--input, &--output {
     flex-basis: 100%;
+    flex-grow: 1;
     display: flex;
+    overflow: scroll;
+    align-items: flex-start;
   }
 }
