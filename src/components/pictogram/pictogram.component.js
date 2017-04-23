@@ -17,6 +17,8 @@ pictogramController.$inject = ['pawPictogramService']
  */
 function pictogramController(pawPictogramService) {
   var ctrl = this;
+  var availablePictograms;
+  var selectedIndex = 0;
 
   /**
    * Obtains pictograms from the API.
@@ -25,7 +27,11 @@ function pictogramController(pawPictogramService) {
    * @returns {Array.<Object>} Array of pictograms.
    */
   function getPictograms(term) {
-    return pawPictogramService.get(term);
+    return pawPictogramService.get(term)
+      .then(pictograms => {
+        availablePictograms = pictograms;
+        return availablePictograms;
+      });
   }
 
   /**
@@ -35,7 +41,7 @@ function pictogramController(pawPictogramService) {
    * @returns {Object} Selected pictogram.
    */
   function getSelectedPictogram(pictograms) {
-    return pictograms[0];
+    return pictograms[selectedIndex];
   }
 
   /**
@@ -54,10 +60,19 @@ function pictogramController(pawPictogramService) {
       }
 
       if (selectedPictogram.type) {
-        ctrl.typeClass =`paw-pictogram__${selectedPictogram.type.code}`;
+        ctrl.typeClass = `paw-pictogram__${selectedPictogram.type.code}`;
       }
     }
   }
+
+  /**
+   * Changs pictogram when it is clicked.
+   */
+  ctrl.onChangePictogram = () => {
+    selectedIndex = availablePictograms.length - 1 === selectedIndex ?
+      0 : selectedIndex + 1;
+    loadPictogram(getSelectedPictogram(availablePictograms));
+  };
 
   /**
    * Updates pictogram information when the word is changed.
