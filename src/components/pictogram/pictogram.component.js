@@ -1,3 +1,4 @@
+import angular from 'angular';
 import pictogramView from './pictogram.view.html';
 
 export default {
@@ -27,7 +28,8 @@ function pictogramController(pawPictogramService) {
    * @returns {Array.<Object>} Array of pictograms.
    */
   function getPictograms(term) {
-    return pawPictogramService.get(term)
+    let standarizeTerm = term.replace(/[\.,]/g, '').toLocaleLowerCase();
+    return pawPictogramService.get(standarizeTerm)
       .then(pictograms => {
         availablePictograms = pictograms;
         return availablePictograms;
@@ -53,8 +55,6 @@ function pictogramController(pawPictogramService) {
     console.log(`Loaded pictogram ${selectedPictogram}`);
 
     if (selectedPictogram) {
-      ctrl.term = selectedPictogram.term;
-
       if (selectedPictogram.image) {
         ctrl.imageUrl = selectedPictogram.image.url;
       }
@@ -78,7 +78,7 @@ function pictogramController(pawPictogramService) {
    * Updates pictogram information when the word is changed.
    */
   ctrl.$onChanges = () => {
-    ctrl.term = ctrl.word;
+    ctrl.term = ctrl.word.replace(/\"/g, '');
 
     getPictograms(ctrl.term)
       .then(pictograms => getSelectedPictogram(pictograms))

@@ -6,14 +6,16 @@ export default {
   controller: menuController
 };
 
-menuController.$inject = ['$window'];
+menuController.$inject = ['$window', '$rootScope', 'pawMainConstants'];
 
 /**
  * Menu controller.
  *
  * @param {any} $window
+ * @param {any} $rootScope
+ * @param {any} pawMainConstants
  */
-function menuController($window) {
+function menuController($window, $rootScope, pawMainConstants) {
   var ctrl = this;
 
   /**
@@ -21,7 +23,15 @@ function menuController($window) {
    */
   ctrl.onPrint = () => {
     // Remove output scroll.
-    document.getElementsByClassName('paw-main--output')[0].scrollTop = 0;
+    $window.document.getElementsByClassName(
+      'paw-main--output')[0].scrollTop = 0;
     $window.print();
+  };
+
+  /**
+   * Callback executed when chain is clicked.
+   */
+  ctrl.onChain = () => {
+    $rootScope.$emit(pawMainConstants.EVENTS.EDITOR_ON_CHAIN);
   };
 }

@@ -34,13 +34,7 @@ function pawWordService($rootScope, pawMainConstants, Pictogram) {
    * @param {Array.<string>} newWords New words to update.
    */
   function setText(newWords) {
-    newWords.forEach((newWord, index) => {
-      if (!words[index] || words[index].term !== newWord) {
-        words[index] = newWord;
-      }
-    });
-
-    words = words.slice(0, newWords.length);
+    words = newWords;
 
     notify();
   }
@@ -53,10 +47,25 @@ function pawWordService($rootScope, pawMainConstants, Pictogram) {
    */
   function splitWords(text) {
     let wordRegExp = /\s+/igm;
+    let isChaining = false;
 
-    text = text.replace(/([\!\?\.\,])/igm, ' $1');
+    return text.split(wordRegExp).filter(char => char !== ' ')
+      .reduce((acc, word) => {
 
-    return text.split(wordRegExp).filter(char => char !== ' ');
+        if (isChaining) {
+          acc[acc.length - 1] += ` ${word}`;
+        } else {
+          acc.push(word);
+        }
+
+        if (word.startsWith('"')) {
+          isChaining = true;
+        } else if (word.endsWith('"')) {
+          isChaining = false;
+        }
+
+        return acc;
+      }, []);
   }
 
   /**
@@ -69,6 +78,7 @@ function pawWordService($rootScope, pawMainConstants, Pictogram) {
   /**
    * Obtains all pictograms stored.
    *
+   * @public
    * @returns {Array.<Object>} Pictograms stored.
    */
   function get() {
@@ -83,7 +93,6 @@ function pawWordService($rootScope, pawMainConstants, Pictogram) {
    */
   function update(newText) {
     let newWords = splitWords(newText);
-    let lastPictogram;
 
     if (isNew(newWords)) {
       setText(newWords);
