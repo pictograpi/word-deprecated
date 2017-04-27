@@ -4,9 +4,11 @@ import pictograpiServices from './libs/pictograpi-services';
 import pawComponents from './components';
 import pawServices from './services';
 import pawConstants from './constants';
+import angularCache from 'angular-cache';
 
 export default angular.module('paw', [
     'pawTemplates',
+    angularCache,
     ngResource,
     pictograpiServices,
     pawServices,
@@ -31,7 +33,14 @@ export default angular.module('paw', [
       };
     });
   })
-  .run(($rootScope, LoopBackAuth) => {
+  .run(($rootScope, $http, CacheFactory, LoopBackAuth) => {
     $rootScope.isAuth = angular.isString(LoopBackAuth.accessTokenId);
+
+    $http.defaults.cache = CacheFactory('defaultCache', {
+      maxAge: 30 * 60 * 1000,
+      cacheFlushInterval: 60 * 60 * 1000,
+      deleteOnExpire: 'aggressive',
+      storageMode: 'localStorage'
+    });
   })
   .name;
