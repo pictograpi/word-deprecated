@@ -32,6 +32,7 @@ function pictogramController(pawPictogramService) {
     return pawPictogramService.get(standarizeTerm)
       .then(pictograms => {
         availablePictograms = pictograms;
+        ctrl.hasMore = availablePictograms.length > 1;
         return availablePictograms;
       });
   }
@@ -66,7 +67,7 @@ function pictogramController(pawPictogramService) {
   }
 
   /**
-   * Changs pictogram when it is clicked.
+   * Changes pictogram when it is clicked.
    */
   ctrl.onChangePictogram = () => {
     selectedIndex = availablePictograms.length - 1 === selectedIndex ?
