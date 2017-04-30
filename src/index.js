@@ -6,7 +6,8 @@ import pawServices from './services';
 import pawConstants from './constants';
 import angularCache from 'angular-cache';
 
-export default angular.module('paw', [
+export default angular
+  .module('paw', [
     'pawTemplates',
     angularCache,
     ngResource,
@@ -15,10 +16,10 @@ export default angular.module('paw', [
     pawComponents,
     pawConstants
   ])
-  .config((LoopBackResourceProvider) => {
+  .config(LoopBackResourceProvider => {
     LoopBackResourceProvider.setUrlBase('https://api.pictograpi.com/api');
   })
-  .config(($httpProvider) => {
+  .config($httpProvider => {
     $httpProvider.interceptors.push(function ($rootScope, $q, $location,
       LoopBackAuth) {
       return {
@@ -42,5 +43,4 @@ export default angular.module('paw', [
       deleteOnExpire: 'aggressive',
       storageMode: 'localStorage'
     });
-  })
-  .name;
+  }).name;
