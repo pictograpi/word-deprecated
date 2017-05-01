@@ -1,16 +1,15 @@
 export default pawWordService;
 
-pawWordService.$inject = ['$rootScope', 'pawMainConstants', 'Pictogram'];
+pawWordService.$inject = ['$rootScope', 'pawMainConstants'];
 
 /**
  * Manager service.
  *
  * @param {any} $rootScope
  * @param {any} pawMainConstants
- * @param {any} Pictogram
  * @returns {Object} API.
  */
-function pawWordService($rootScope, pawMainConstants, Pictogram) {
+function pawWordService($rootScope, pawMainConstants) {
   let words = [];
 
   return {

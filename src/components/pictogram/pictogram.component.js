@@ -53,6 +53,7 @@ function pictogramController(pawPictogramService, pawConfigService) {
    * @param {any} selectedPictogram
    */
   function loadPictogram(selectedPictogram) {
+    // eslint-disable-next-line
     console.log(`Loaded pictogram ${selectedPictogram}`);
 
     if (selectedPictogram) {

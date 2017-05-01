@@ -9,17 +9,19 @@ function authService($rootScope, Account, pawMainConstants) {
   };
 
   function login(data) {
-    return Account.login({
+    return Account
+      .login({
         email: data.email,
         password: data.password
-      }).$promise
+      })
+      .$promise
       .then(() => {
         $rootScope.isAuth = true;
         $rootScope.$emit(pawMainConstants.EVENTS.USER_LOGGED_IN);
       });
   }
 
-  function logout(data) {
+  function logout() {
     return Account.logout().$promise
       .then(() => {
         $rootScope.isAuth = false;

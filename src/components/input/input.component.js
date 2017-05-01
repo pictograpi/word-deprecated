@@ -5,7 +5,9 @@ export default {
   controller: inputController
 };
 
-inputController.$inject = ['$rootScope', '$window', 'pawMainConstants', 'pawWordService'];
+inputController.$inject = ['$rootScope', '$window', 'pawMainConstants',
+  'pawWordService'
+];
 
 /**
  * Input controller.
@@ -36,9 +38,10 @@ function inputController($rootScope, $window, pawMainConstants,
     let selectionStart = inputElement.selectionStart;
     let selectionEnd = inputElement.selectionEnd;
 
-    ctrl.input = `${ctrl.input.substr(0, selectionStart)}"${selectedText}"${ctrl.input.substr(selectionEnd)}`;
+    ctrl.input = `${ctrl.input.substr(0, selectionStart)}"${selectedText}"${
+      ctrl.input.substr(selectionEnd)}`;
     pawWordService.update(ctrl.input);
-  };
+  }
 
   /**
    * Updates the word service with the new input introduced.

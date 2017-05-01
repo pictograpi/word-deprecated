@@ -31,13 +31,13 @@ function pictogramService(Pictogram) {
    */
   function get(term) {
     return Pictogram.find({
-        filter: {
-          where: {
-            term: term
-          },
-          include: ['language', 'type', 'image']
-        }
-      }).$promise
+      filter: {
+        where: {
+          term: term
+        },
+        include: ['language', 'type', 'image']
+      }
+    }).$promise
       .then((pictograms) => filterByLanguage(pictograms));
   }
 }

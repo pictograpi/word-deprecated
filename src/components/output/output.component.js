@@ -23,6 +23,7 @@ function outputController($rootScope, pawMainConstants, pawWordService) {
   function createPictogramListener() {
     $rootScope.$on(pawMainConstants.EVENTS.NEW_WORD_INSERTED, () => {
       ctrl.words = pawWordService.get();
+      // eslint-disable-next-line
       console.log(`Existing words: ${ctrl.words}`);
     });
   }
@@ -32,5 +33,5 @@ function outputController($rootScope, pawMainConstants, pawWordService) {
    */
   ctrl.$onInit = () => {
     createPictogramListener();
-  }
+  };
 }
