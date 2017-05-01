@@ -1,4 +1,3 @@
-import angular from 'angular';
 import pictogramView from './pictogram.view.html';
 
 export default {
@@ -9,14 +8,15 @@ export default {
   controller: pictogramController
 };
 
-pictogramController.$inject = ['pawPictogramService']
+pictogramController.$inject = ['pawPictogramService', 'pawConfigService'];
 
 /**
  * Pictograms controller.
  *
  * @param {any} pawPictogramService
+ * @param {any} pawConfigService
  */
-function pictogramController(pawPictogramService) {
+function pictogramController(pawPictogramService, pawConfigService) {
   var ctrl = this;
   var availablePictograms;
   var selectedIndex = 0;
@@ -85,4 +85,9 @@ function pictogramController(pawPictogramService) {
       .then(pictograms => getSelectedPictogram(pictograms))
       .then(selectedPictogram => loadPictogram(selectedPictogram));
   };
+
+  /**
+   * Checks if border is active.
+   */
+  ctrl.isBorderActive = pawConfigService.getBorderActive;
 }

@@ -1,4 +1,6 @@
-<div class="paw-pictogram" ng-click="$ctrl.onChangePictogram()" ng-class="$ctrl.typeClass">
+<div class="paw-pictogram {{$ctrl.typeClass}}" ng-click="$ctrl.onChangePictogram()" ng-class="{
+    'paw-pictogram__no-border': !$ctrl.isBorderActive()
+  }">
   <span class="paw-pictogram--change-arrow" ng-if="$ctrl.hasMore">
     <i class="fa fa-plus" aria-hidden="true"></i>
     <i class="fa fa-picture-o" aria-hidden="true"></i>

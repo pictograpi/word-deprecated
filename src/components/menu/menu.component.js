@@ -1,12 +1,13 @@
 import menuView from './menu.view.html';
-import angular from 'angular';
 
 export default {
   templateUrl: menuView,
   controller: menuController
 };
 
-menuController.$inject = ['$window', '$rootScope', 'pawMainConstants'];
+menuController.$inject = ['$window', '$rootScope', 'pawMainConstants',
+  'pawConfigService'
+];
 
 /**
  * Menu controller.
@@ -14,12 +15,15 @@ menuController.$inject = ['$window', '$rootScope', 'pawMainConstants'];
  * @param {any} $window
  * @param {any} $rootScope
  * @param {any} pawMainConstants
+ * @param {any} pawConfigService
  */
-function menuController($window, $rootScope, pawMainConstants) {
-  var ctrl = this;
+function menuController($window, $rootScope, pawMainConstants,
+  pawConfigService) {
+  var ctrl = this,
+    EVENTS = pawMainConstants.EVENTS;
 
   /**
-   * Callback executed to print the page.
+   * Prints the page.
    */
   ctrl.onPrint = () => {
     // Remove output scroll.
@@ -29,9 +33,19 @@ function menuController($window, $rootScope, pawMainConstants) {
   };
 
   /**
-   * Callback executed when chain is clicked.
+   * Chains words.
    */
   ctrl.onChain = () => {
-    $rootScope.$emit(pawMainConstants.EVENTS.EDITOR_ON_CHAIN);
+    $rootScope.$emit(EVENTS.EDITOR_ON_CHAIN);
   };
+
+  /**
+   * Toggles pictogram borders.
+   */
+  ctrl.onToggleBorder = pawConfigService.toggleBorder;
+
+  /**
+   * Checks if border is active.
+   */
+  ctrl.isBorderActive = pawConfigService.getBorderActive;
 }
