@@ -7,13 +7,34 @@ export default pawConfigService;
  */
 function pawConfigService() {
   let config = {
-    isBorderActive: true
+    isBorderActive: true,
+    isWordActive: true
   };
 
   return {
     toggleBorder,
-    getBorderActive
+    getBorderActive,
+    getWordActive,
+    toggleWord
   };
+
+  /**
+   * Gets word status.
+   *
+   * @returns {boolean} Word status.
+   */
+  function getWordActive() {
+    return config.isWordActive;
+  }
+
+  /**
+   * Gets border status.
+   *
+   * @returns {boolean} Border status.
+   */
+  function getBorderActive() {
+    return config.isBorderActive;
+  }
 
   /**
    * Toggles border status.
@@ -23,9 +44,9 @@ function pawConfigService() {
   }
 
   /**
-   * Gets border status.
+   * Toggles word show/hide.
    */
-  function getBorderActive() {
-    return config.isBorderActive;
+  function toggleWord() {
+    config.isWordActive = !config.isWordActive;
   }
 }

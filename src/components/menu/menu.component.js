@@ -45,7 +45,17 @@ function menuController($window, $rootScope, pawMainConstants,
   ctrl.onToggleBorder = pawConfigService.toggleBorder;
 
   /**
+   * Toggles word.
+   */
+  ctrl.onToggleWord = pawConfigService.toggleWord;
+
+  /**
    * Checks if border is active.
    */
   ctrl.isBorderActive = pawConfigService.getBorderActive;
+
+  /**
+   * Checks if word is active.
+   */
+  ctrl.isWordActive = pawConfigService.getWordActive;
 }

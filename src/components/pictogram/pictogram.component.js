@@ -91,4 +91,9 @@ function pictogramController(pawPictogramService, pawConfigService) {
    * Checks if border is active.
    */
   ctrl.isBorderActive = pawConfigService.getBorderActive;
+
+  /**
+   * Checks if word is active.
+   */
+  ctrl.isWordActive = pawConfigService.getWordActive;
 }
