@@ -82,9 +82,12 @@ function pictogramController(pawPictogramService, pawConfigService) {
   ctrl.$onChanges = () => {
     ctrl.term = ctrl.word.replace(/\"/g, '');
 
+    ctrl.isLoading = true;
+
     getPictograms(ctrl.term)
       .then(pictograms => getSelectedPictogram(pictograms))
-      .then(selectedPictogram => loadPictogram(selectedPictogram));
+      .then(selectedPictogram => loadPictogram(selectedPictogram))
+      .finally(() => ctrl.isLoading = false);
   };
 
   /**
