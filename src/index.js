@@ -17,7 +17,7 @@ export default angular
     pawConstants
   ])
   .config(LoopBackResourceProvider => {
-    LoopBackResourceProvider.setUrlBase('http://localhost:3000/api');
+    LoopBackResourceProvider.setUrlBase('https://api.pictograpi.com/api');
   })
   .config($httpProvider => {
     $httpProvider.interceptors.push(function ($rootScope, $q, $location,
