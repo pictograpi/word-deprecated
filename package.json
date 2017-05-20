@@ -11,7 +11,7 @@
     "watch-less": "nodemon --watch ./src -e less --exec 'npm run build-less'",
     "serve": "http-server -f / ./public",
     "lint": "eslint --ignore-pattern pictograpi-services.js ./src",
-    "build": "npm run lint&& npm run clean && npm run build-js && npm run build-less",
+    "build": "npm run lint && npm run clean && npm run build-js && npm run build-less",
     "dev": "npm run clean && npm run watch-js & npm run watch-less & npm run serve",
     "start": "npm run clean && npm run build-js && npm run build-less && npm run serve",
     "deploy": "npm run build && firebase deploy"
@@ -28,7 +28,7 @@
     "less": "^2.7.2",
     "less-plugin-glob": "^2.0.0",
     "nodemon": "^1.11.0",
-    "uglifyjs": "^2.4.10",
+    "uglify-js": "^2.4.10",
     "watchify": "^3.9.0"
   },
   "browserify": {
