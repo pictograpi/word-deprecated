@@ -5,7 +5,8 @@ authService.$inject = ['$rootScope', 'Account', 'pawMainConstants'];
 function authService($rootScope, Account, pawMainConstants) {
   return {
     login,
-    logout
+    logout,
+    register
   };
 
   function login(data) {
@@ -27,5 +28,9 @@ function authService($rootScope, Account, pawMainConstants) {
         $rootScope.isAuth = false;
         $rootScope.$emit(pawMainConstants.EVENTS.USER_LOGGED_OUT);
       });
+  }
+
+  function register(data) {
+    return Account.create(data).$promise;
   }
 }

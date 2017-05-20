@@ -8,16 +8,23 @@ export default {
 headerController.$inject = ['$rootScope', 'pawMainConstants', 'pawAuthService'];
 
 function headerController($rootScope, pawMainConstants, pawAuthService) {
+  const EVENTS = pawMainConstants.EVENTS;
   var ctrl = this;
 
   /**
-   * Shows login when login is clicked.
+   * Shows login popup when login is clicked.
    */
-  ctrl.onLoginClick = () => $rootScope.$emit(
-    pawMainConstants.EVENTS.SHOW_LOGIN);
+  ctrl.onLoginClick = () => $rootScope.$emit(EVENTS.SHOW_LOGIN);
 
+  /**
+   * Logouts the user when clicked.
+   */
   ctrl.onLogoutClick = () => pawAuthService.logout();
 
-  $rootScope.$on(pawMainConstants.EVENTS.USER_LOGGED_IN,
-    () => ctrl.userLoggedIn = true);
+  /**
+   * Shows register popup when clicked.
+   */
+  ctrl.onRegisterClick = () => $rootScope.$emit(EVENTS.SHOW_REGISTRATION);
+
+  $rootScope.$on(EVENTS.USER_LOGGED_IN, () => ctrl.userLoggedIn = true);
 }

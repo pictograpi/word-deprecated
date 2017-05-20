@@ -24,7 +24,10 @@ function loginController($rootScope, $timeout, pawMainConstants,
   /**
    * Hides the login form.
    */
-  ctrl.onHide = () => ctrl.isVisible = false;
+  ctrl.onHide = () => {
+    ctrl.isVisible = false;
+    ctrl.isError = false;
+  };
 
   /**
    * Log in the user when submit button is clicked.

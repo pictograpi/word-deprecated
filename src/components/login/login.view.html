@@ -1,9 +1,9 @@
-<div ng-if="$ctrl.isVisible" class="paw-login">
-  <form class="paw-login--form" novalidate>
-    <span class="paw-login--form-close fa fa-close" ng-click="$ctrl.onHide()"></span>
-    <h1 class="paw-login--form-title">Login</h1>
-    <input class="paw-login--form-input" ng-model="loginData.email" type="email" placeholder="bob@pictograpi.com" ng-required/>
-    <input class="paw-login--form-input" ng-model="loginData.password" type="password" placeholder="******" ng-required/>
-    <input type="submit" class="paw-login--form-input" ng-class="{'paw-login--form-input__button-error': $ctrl.isError}" ng-click="$ctrl.onSubmit(loginData)" ng-bind="$ctrl.isError ? 'Login error' : 'Log in'"/>
+<div ng-if="$ctrl.isVisible" class="paw-popup">
+  <form class="paw-popup--form" novalidate>
+    <span class="paw-popup--form-close fa fa-close" ng-click="$ctrl.onHide()"></span>
+    <h1 class="paw-popup--form-title">Login</h1>
+    <input class="paw-popup--form-input" ng-model="loginData.email" type="email" placeholder="bob@pictograpi.com" ng-required/>
+    <input class="paw-popup--form-input" ng-model="loginData.password" type="password" placeholder="******" ng-required/>
+    <input type="submit" class="paw-popup--form-input" ng-class="{'paw-popup--form-input__button-error': $ctrl.isError}" ng-click="$ctrl.onSubmit(loginData)" value="{{$ctrl.isError ? 'Login error' : 'Log in'}}"/>
   </form>
 </div>
