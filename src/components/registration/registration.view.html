@@ -1,11 +1,11 @@
 <div ng-if="$ctrl.isVisible" class="paw-popup">
   <form class="paw-popup--form" novalidate>
     <span class="paw-popup--form-close fa fa-close" ng-click="$ctrl.onHide()"></span>
-    <h1 class="paw-popup--form-title">Register</h1>
+    <h1 class="paw-popup--form-title">Sign up</h1>
     <input class="paw-popup--form-input" ng-model="registrationData.name" type="name" placeholder="John Doe" ng-required/>
     <input class="paw-popup--form-input" ng-model="registrationData.email" type="email" placeholder="johndoe@pictograpi.com" ng-required/>
     <input class="paw-popup--form-input" ng-model="registrationData.password" type="password" placeholder="******" ng-required/>
-    <p class="paw-text__centered" ng-if="$ctrl.isSuccess">Yay! You're successfully registered!</p>
+    <p class="paw-text__centered" ng-if="$ctrl.isSuccess">Yay! You've signed up successfully!</p>
     <input type="submit"
       class="paw-popup--form-input"
       ng-class="{

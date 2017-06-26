@@ -69,7 +69,7 @@ function registrationController($rootScope, $timeout, pawMainConstants,
   };
 
   ctrl.$onInit = () => {
-    ctrl.text = 'Register';
+    ctrl.text = 'Sign up';
   };
 
   $rootScope.$on(pawMainConstants.EVENTS.SHOW_REGISTRATION,

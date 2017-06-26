@@ -1,7 +1,7 @@
 <div ng-if="$ctrl.isVisible" class="paw-popup">
   <form class="paw-popup--form" novalidate>
     <span class="paw-popup--form-close fa fa-close" ng-click="$ctrl.onHide()"></span>
-    <h1 class="paw-popup--form-title">Login</h1>
+    <h1 class="paw-popup--form-title">Sign in</h1>
     <input class="paw-popup--form-input" ng-model="loginData.email" type="email" placeholder="bob@pictograpi.com" ng-required/>
     <input class="paw-popup--form-input" ng-model="loginData.password" type="password" placeholder="******" ng-required/>
     <input type="submit" class="paw-popup--form-input" ng-class="{'paw-popup--form-input__button-error': $ctrl.isError}" ng-click="$ctrl.onSubmit(loginData)" value="{{$ctrl.isError ? 'Login error' : 'Log in'}}"/>
