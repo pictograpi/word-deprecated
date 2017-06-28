@@ -7,7 +7,7 @@
     <i class="fa fa-picture-o" aria-hidden="true"></i>
   </span>
   <img crossorigin="use-credentials" class="paw-pictogram--image" ng-src="{{$ctrl.imageUrl}}" ng-if="$ctrl.imageUrl && !$ctrl.isLoading"/>
-  <img class="paw-pictogram--image" src="https://fakeimg.pl/200x200/fff/fff?text=Not found" ng-if="!$ctrl.imageUrl && !$ctrl.isLoading">
+  <img crossorigin="use-credentials" class="paw-pictogram--image" src="https://s3.eu-central-1.amazonaws.com/pictograpi-cdn/not-found.png" ng-if="!$ctrl.imageUrl && !$ctrl.isLoading">
   <img crossorigin="use-credentials" class="paw-pictogram--image paw-pictogram--image__loading" src="https://s3.eu-central-1.amazonaws.com/pictograpi-cdn/loading.svg" ng-if="$ctrl.isLoading"/>
   <p class="paw-pictogram--term" ng-bind="$ctrl.term"></p>
 </div>
