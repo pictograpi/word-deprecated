@@ -30,16 +30,12 @@ function loginController($rootScope, $timeout, pawMainConstants,
   };
 
   /**
-   * Log in the user when submit button is clicked.
+   * Launches Facebook login.
    */
-  ctrl.onSubmit = data => {
-    if (!data || !data.email || !data.password) {
-      showError();
-    } else {
-      pawAuthService.login(data)
-        .then(() => ctrl.onHide())
-        .catch(() => showError());
-    }
+  ctrl.onFacebookLogin = () => {
+    pawAuthService.loginFacebook()
+      .then(() => ctrl.onHide())
+      .catch(() => showError());
   };
 
   $rootScope.$on(pawMainConstants.EVENTS.SHOW_LOGIN,

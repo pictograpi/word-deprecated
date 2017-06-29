@@ -5,7 +5,10 @@
     "es6": true,
     "mocha": true
   },
-  "globals": {},
+  "globals": {
+    "firebase": false,
+    "process": false
+  },
   "extends": "eslint:recommended",
   "parserOptions": {
     "sourceType": "module"

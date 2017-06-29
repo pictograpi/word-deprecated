@@ -1,3 +1,4 @@
 public/bundles
 node_modules
 firebase-debug.log
+.env

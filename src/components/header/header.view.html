@@ -1,9 +1,8 @@
 <header class="paw-header">
   <a href="/" class="paw-header--logo"><span class="paw-header--logo__bold">Pictograpi</span>Word<span class="paw-header--logo__small">beta</span></a>
   <nav class="paw-header--nav">
-    <a href="" ng-if="!$root.isAuth" ng-click="$ctrl.onRegisterClick()" class="paw-header--nav-item">Sign up</a>
     <a href="" ng-if="!$root.isAuth" ng-click="$ctrl.onLoginClick()" class="paw-header--nav-item">Sign in</a>
     <a href="" ng-if="$root.isAuth" ng-click="$ctrl.onLogoutClick()" class="paw-header--nav-item">Sign out</a>
-    <a href="mailto:admin@pictograpi.com" class="paw-header--nav-item">Contact us</a>
+    <a href="http://pictograpi.com/#contact" target="_blank" class="paw-header--nav-item">Contact us</a>
   </nav>
 </header>
