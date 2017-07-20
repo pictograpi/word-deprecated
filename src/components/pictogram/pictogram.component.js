@@ -1,4 +1,5 @@
 import pictogramView from './pictogram.view.html';
+import base64Img from 'base64-img';
 
 export default {
   templateUrl: pictogramView,
@@ -8,15 +9,19 @@ export default {
   controller: pictogramController
 };
 
-pictogramController.$inject = ['pawPictogramService', 'pawConfigService'];
+pictogramController.$inject = ['$rootScope', 'pawPictogramService',
+  'pawConfigService'
+];
 
 /**
  * Pictograms controller.
  *
+ * @param {any} $rootScope
  * @param {any} pawPictogramService
  * @param {any} pawConfigService
  */
-function pictogramController(pawPictogramService, pawConfigService) {
+function pictogramController($rootScope, pawPictogramService,
+  pawConfigService) {
   var ctrl = this;
   var availablePictograms;
   var selectedIndex = 0;
@@ -29,6 +34,7 @@ function pictogramController(pawPictogramService, pawConfigService) {
    */
   function getPictograms(term) {
     let standarizeTerm = term.replace(/[\.,]/g, '').toLocaleLowerCase();
+
     return pawPictogramService.get(standarizeTerm)
       .then(pictograms => {
         availablePictograms = pictograms;
@@ -58,7 +64,13 @@ function pictogramController(pawPictogramService, pawConfigService) {
 
     if (selectedPictogram) {
       if (selectedPictogram.image) {
-        ctrl.imageUrl = selectedPictogram.image.url;
+        base64Img.requestBase64(selectedPictogram.image.url,
+          (err, res, body) => {
+            if (!err) {
+              $rootScope.$evalAsync(() => ctrl.imageUrl = body);
+            }
+          }
+        );
       }
 
       if (selectedPictogram.type) {

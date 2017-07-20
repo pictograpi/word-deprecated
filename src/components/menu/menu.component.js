@@ -39,6 +39,10 @@ function menuController($window, $rootScope, pawMainConstants,
     $rootScope.$emit(EVENTS.EDITOR_ON_CHAIN);
   };
 
+  ctrl.onExport = () => {
+    $rootScope.$emit(EVENTS.SHARE);
+  };
+
   /**
    * Toggles pictogram borders.
    */
