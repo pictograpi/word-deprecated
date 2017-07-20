@@ -1,6 +1,7 @@
 import shareView from './share.view.html';
 import html2canvas from 'html2canvas';
 import angular from 'angular';
+import downloadJs from 'downloadjs';
 
 export default {
   templateUrl: shareView,
@@ -37,6 +38,14 @@ function shareController($rootScope, pawMainConstants) {
         });
       });
   }
+
+  /**
+   * Downloads the file to the computer.
+   */
+  ctrl.onDownload = () => {
+    downloadJs(ctrl.imageSrc, `pictograpi-word-image-${Date.now()}.png`,
+      'image/png');
+  };
 
   /**
    * Hides the login form.
