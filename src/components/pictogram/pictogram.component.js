@@ -33,7 +33,7 @@ function pictogramController($rootScope, pawPictogramService,
    * @returns {Array.<Object>} Array of pictograms.
    */
   function getPictograms(term) {
-    let standarizeTerm = term.replace(/[\.,]/g, '').toLocaleLowerCase();
+    let standarizeTerm = term.replace(/[\.,!]/g, '').toLocaleLowerCase();
 
     return pawPictogramService.get(standarizeTerm)
       .then(pictograms => {

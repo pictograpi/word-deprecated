@@ -4,13 +4,13 @@
     <h1 class="paw-popup--form-title">Share your creation</h1>
     <div class="paw-share--box">
       <div class="paw-share--column">
-        <img alt="lol" class="paw-share--image" ng-if="$ctrl.imageSrc" ng-src="{{$ctrl.imageSrc}}"/>
+        <img class="paw-share--image" ng-if="$ctrl.imageSrc" ng-src="{{$ctrl.imageSrc}}" />
       </div>
       <div class="paw-share--column">
         <h2>1. Download the image to your computer</h2>
-          <div class="paw-share--providers">
-            <button class="paw-share--download" ng-click="$ctrl.onDownload()"><i class="fa fa-download" aria-hidden="true"></i></button>
-          </div>
+        <div class="paw-share--providers">
+          <button class="paw-share--download" ng-click="$ctrl.onDownload()"><i class="fa fa-download" aria-hidden="true"></i></button>
+        </div>
         <h2>2. Upload it to one of these services or use your own</h2>
         <div class="paw-share--providers">
           <a target="_blank" href="http://imgur.com"><img src="http://cdn.pictograpi.com/imgur-logo.png"/></a>
