@@ -1,6 +1,12 @@
 # pictograpi-word
 A project to translate what you write into pictograms.
 
+# Development
+This project has been created using AngularJS + Browserify these main tasks:
+- ``npm run lint``: Lints code.
+- ``npm run dev``: Compiles the code and launches a server to test while development.
+- ``npm run build``: Builds the code into ``./dist`` folder.
+
 # Configuration
 This project uses a ``.env`` file to configure this information:
 
@@ -15,3 +21,6 @@ FIREBASE_PROJECT_ID=foo
 FIREBASE_STORAGE_BUCKET=foo.appspot.com
 FIREBASE_MESSAGING_SENDER_ID=123456789
 ```
+
+# Credits
+- [ARASAAC](http://arasaac.org)

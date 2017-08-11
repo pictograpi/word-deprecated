@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+- lts/*
+branches:
+  only:
+  - master
+before_script:
+- npm install -g firebase-tools
+script:
+- npm run build
+after_success:
+- firebase deploy --token=${FIREBASE_API_TOKEN}
+cache:
+  directories:
+  - node_modules
+env:
+  global:
+  - secure: W6AVrXhSEBeKYllympgDxbBK4F5/BKHPr/wSpr7rxm93qoiDT0P0G2a07O+iwbdpuE6Wz7Rqku7DMWZXKoYcKtwtnkeLar37ErqDyX6bAC6wb82wRbAA1JLqNoWaGf+tYLasGW8v8TiV5FP42x3y/+ZPId+uUq80QAxyXUrnp/DdY/SsUxQJ9YiqJ8FAKv+T6uWTLHi5fF1QIMbI0HMx/P+zCuF+ZaZ6fhH4GwhOJsobcD5POyiSoZJhdKKbUwsWWpBl2h3Ztj4WpGQQKKN+JiaT+I1cO/c3TxdqR+irVweiejKCROsK77Rq7ql975u23vPU/1/TkKrFMmqXYcVUewTXTflgrGW8Tuc12RHr8GMp+LXJa8tmmx1QViQIb15NCgavzGhDExnXa2tVn3Q3toUaTht81w1ifkkhZxUKPjbcmFSMl0A6on0RDkp3Sj5US9StuTC8XCkQ9rp+ihHlV+G/WEflLylrx6XswwD1KaF5tCpmWZrlsplXlSpeV1wIIjpMQwKYDzkXkqsOgLTCYdFA8+sHo9VICR7dgYlv4/58rGri/OdA21Nx0EwQiciuBU1q7Z02iuqFJ4iazBK8zCuduXJlyPp49K6p+lIt9ajqRzU3OT690vSHImvXeYtrvCzI0AgZ51Sbpp0j8SyVa6N5IDz2vtrEhhbSqiL0quU=
+  - secure: dSwA0BCvcU+gk+2Lc+0irumtBG5h5cptNTme23RgLYXe3pHTkVaYUUi8HuZFb7vrX31hISnyR/jHb8DBN5gGXIbzP5GJUx4JA1ZQCg4B1QaHMCjCIxAHl6xhFzh6ZEhHk1jZIo/1eFu31/6RUU3jqU3b5DwI+OKqkQtHNd0bWyK5MPhjqFFZevKH1ygk7rTQ3T6f1V3lJen/csZQoOMX40FYgj4WSZbrhUXvqsqn9FqPAOdqD4D14Qe9Wo/dmIT/daZpst0k30yt63O0KPM1BGOxYmLBv2M+6J5bgBsAMGjGoBYrWW++2/eexI0GWV1wr2bSabVWaslIQ4arMMMvei01FYXpA5Pmn8yki+Si3m37aijZ+S+09bcDsggNxsTL7EfBcjZMWLuvk6/RHlMkmbdmtj6cXijOxRzvtq0UyF0S69+zx4LO9S2cW5uIpU+z1V8F3lKKMQ/FYk4o2dNyGUgo4A36O/Dv7EFvLMiww70C2Xx6XVtoA1PTtwStdCcgqxDEO8OdNgvYwOhpNbLK1mxunVateZyRxmd44Vdq9sX3iweKrb2pVHVEZDGF3GFACCtWHg/TmRhriMnC/0hXp/RO64XQ35Amn3epKiLq0EbdlARFurSvC4UHLPsHAGPQKv8vR7ZeCZ6hMC5YFId/9V4ki8/41YbGAx+XgUj3q48=
