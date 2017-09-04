@@ -31,30 +31,6 @@ export default angular
   .config(LoopBackResourceProvider => {
     LoopBackResourceProvider.setUrlBase(process.env.PICTOGRAPI_ENDPOINT);
   })
-  .config($httpProvider => {
-    $httpProvider.interceptors.push(function ($rootScope, $q, $location,
-      $firebaseAuth, LoopBackAuth, pawMainConstants) {
-      return {
-        responseError: function (rejection) {
-          let auth = $firebaseAuth();
-
-          if (rejection.status == 401) {
-            LoopBackAuth.clearUser();
-            LoopBackAuth.clearStorage();
-            $rootScope.isAuth = false;
-
-            return auth.$signOut()
-              .then(() => {
-                $rootScope.isAuth = false;
-                $rootScope.user = undefined;
-                $rootScope.$emit(pawMainConstants.EVENTS.USER_LOGGED_OUT);
-              });
-          }
-          return $q.reject(rejection);
-        }
-      };
-    });
-  })
   .run(($rootScope, $http, CacheFactory, pawAuthService) => {
     pawAuthService.checkInitialLogin();
 

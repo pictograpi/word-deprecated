@@ -14,19 +14,21 @@ function authService($rootScope, $firebaseAuth, $q, Account, LoopBackAuth,
     loginFacebook,
     logout,
     setLoggedIn,
-    setLoggedOut,
-    register
+    setLoggedOut
   };
 
+  /**
+   * Launches login into the API and stores information in the $rootScope.
+   */
   function checkInitialLogin() {
-    $firebaseAuth().$onAuthStateChanged(function (user) {
-      user ? (loginPictograpi()
-          .then(() => setLoggedIn(user))
-          .catch(setLoggedOut)) :
-        setLoggedOut();
-    });
+    loginPictograpi().then(setLoggedIn);
   }
 
+  /**
+   * Requests a login petition to the API.
+   *
+   * @returns {Promise} To be resolved when finished.
+   */
   function loginPictograpi() {
     return Account.login({
       email: process.env.PICTOGRAPI_USER,
@@ -56,9 +58,8 @@ function authService($rootScope, $firebaseAuth, $q, Account, LoopBackAuth,
    *
    * @param {Object} user User information
    */
-  function setLoggedIn(user) {
+  function setLoggedIn() {
     $rootScope.isAuth = true;
-    $rootScope.user = user;
     $rootScope.$emit(pawMainConstants.EVENTS.USER_LOGGED_IN);
   }
 
@@ -83,9 +84,5 @@ function authService($rootScope, $firebaseAuth, $q, Account, LoopBackAuth,
 
     return auth.$signOut()
       .then(setLoggedOut);
-  }
-
-  function register(data) {
-    return Account.create(data).$promise;
   }
 }
