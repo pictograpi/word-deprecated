@@ -6,8 +6,9 @@
     <i class="fa fa-plus" aria-hidden="true"></i>
     <i class="fa fa-picture-o" aria-hidden="true"></i>
   </span>
-  <img class="paw-pictogram--image" ng-src="{{$ctrl.imageUrl}}" ng-if="$ctrl.imageUrl && !$ctrl.isLoading"/>
-  <img class="paw-pictogram--image" src="http://cdn.pictograpi.com/not-found.png" ng-if="!$ctrl.imageUrl && !$ctrl.isLoading">
-  <img class="paw-pictogram--image paw-pictogram--image__loading" src="http://cdn.pictograpi.com/loading.svg" ng-if="$ctrl.isLoading"/>
+  <img class="paw-pictogram--image" ng-src="{{$ctrl.imageUrl}}" ng-if="$ctrl.imageUrl && !$ctrl.isLoading" />
+  <img class="paw-pictogram--image" src="https://cdn.pictograpi.com/not-found.png" ng-if="!$ctrl.imageUrl && !$ctrl.isLoading">
+  <img class="paw-pictogram--image paw-pictogram--image__loading" src="https://cdn.pictograpi.com/loading.svg" ng-if="$ctrl.isLoading"
+  />
   <p class="paw-pictogram--term" ng-bind="$ctrl.term"></p>
 </div>
