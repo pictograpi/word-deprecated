@@ -1,7 +1,7 @@
 {
   "name": "pictograpi-word",
   "version": "1.0.0",
-  "description": "A project to translate what you write into pictograms",
+  "description": "A project to translate what you write into pictographs",
   "author": "Adrián Gómez - http://adgllorente.com",
   "scripts": {
     "clean": "rm -rf ./public/bundles && mkdir -p ./public/bundles",

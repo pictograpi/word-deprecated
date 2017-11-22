@@ -44,7 +44,7 @@ function menuController($window, $rootScope, pawMainConstants,
   };
 
   /**
-   * Toggles pictogram borders.
+   * Toggles pictograph borders.
    */
   ctrl.onToggleBorder = pawConfigService.toggleBorder;
 

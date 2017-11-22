@@ -68,17 +68,17 @@ function pawWordService($rootScope, pawMainConstants) {
   }
 
   /**
-   * Emits an event informing a new pictogram has been loaded.
+   * Emits an event informing a new pictograph has been loaded.
    */
   function notify() {
     $rootScope.$emit(pawMainConstants.EVENTS.NEW_WORD_INSERTED);
   }
 
   /**
-   * Obtains all pictograms stored.
+   * Obtains all pictographs stored.
    *
    * @public
-   * @returns {Array.<Object>} Pictograms stored.
+   * @returns {Array.<Object>} Pictographs stored.
    */
   function get() {
     return words;

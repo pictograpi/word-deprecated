@@ -20,7 +20,7 @@ function outputController($rootScope, pawMainConstants, pawWordService) {
   /**
    * Creates a listener to update data.
    */
-  function createPictogramListener() {
+  function createPictographListener() {
     $rootScope.$on(pawMainConstants.EVENTS.NEW_WORD_INSERTED, () => {
       ctrl.words = pawWordService.get();
       // eslint-disable-next-line
@@ -29,9 +29,9 @@ function outputController($rootScope, pawMainConstants, pawWordService) {
   }
 
   /**
-   * Creates a listener for the pictogram event.
+   * Creates a listener for the pictograph event.
    */
   ctrl.$onInit = () => {
-    createPictogramListener();
+    createPictographListener();
   };
 }

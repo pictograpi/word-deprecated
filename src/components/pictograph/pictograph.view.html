@@ -1,0 +1,14 @@
+<div class="paw-pictograph {{$ctrl.typeClass}}" ng-click="$ctrl.onChangePictograph()" ng-class="{
+    'paw-pictograph__no-border': !$ctrl.isBorderActive(),
+    'paw-pictograph__no-word': !$ctrl.isWordActive()
+  }">
+  <span class="paw-pictograph--change-arrow" ng-if="$ctrl.hasMore">
+    <i class="fa fa-plus" aria-hidden="true"></i>
+    <i class="fa fa-picture-o" aria-hidden="true"></i>
+  </span>
+  <img class="paw-pictograph--image" ng-src="{{$ctrl.imageUrl}}" ng-if="$ctrl.imageUrl && !$ctrl.isLoading" />
+  <img class="paw-pictograph--image" src="https://cdn.pictograpi.com/not-found.png" ng-if="!$ctrl.imageUrl && !$ctrl.isLoading">
+  <img class="paw-pictograph--image paw-pictograph--image__loading" src="https://cdn.pictograpi.com/loading.svg" ng-if="$ctrl.isLoading"
+  />
+  <p class="paw-pictograph--term" ng-bind="$ctrl.term"></p>
+</div>

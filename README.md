@@ -1,5 +1,5 @@
 # pictograpi-word
-A project to translate what you write into pictograms.
+A project to translate what you write into pictographs.
 
 # Development
 This project has been created using AngularJS + Browserify these main tasks:
