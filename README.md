@@ -1,3 +1,6 @@
+# DEPRECATED
+This project is no longer maintained and it will be erased
+
 # pictograpi-word
 A project to translate what you write into pictographs.
 
